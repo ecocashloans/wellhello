@@ -8,7 +8,7 @@ const FORM = {
         name: "login_email",
         label: "E-mail",
         attr: { placeholder: "E-mail" },
-        type: "text",
+        type: "email",
         constraints: {},
       },
       retUrl: { value: null, required: false, name: "retUrl", label: "Headline", attr: {}, type: "hidden", constraints: {} },
