@@ -75,6 +75,8 @@ function thumbnailFor(u) {
 }
 
 function profileFor(u) {
+  // details keys must match profile.details.*Title / profile.details.<key>.<value>
+  // i18n in the SPA (Status, Travel, Orientation, Race, Height, Build, Attributes).
   return {
     user: {
       user_id: u.user_id,
@@ -84,18 +86,20 @@ function profileFor(u) {
       age: u.age,
     },
     media: mediaFor(u),
-    title: u.nickname + ", " + u.age,
+    title: "Talkative Friend",
     description:
-      "Hi, I'm " + u.nickname + "! I love going out, traveling and meeting new people. " +
-      "Looking for someone fun to chat with and see where things go. Send me a message!",
+      "If you're having a bad day and in need of a good conversation, I'm your girl. " +
+      "Love music, late-night chats and spontaneous plans. more",
     lookingFor: "Straight Male",
-    interests: "Casual Sex, Role Play",
+    interests: "Orgies, Vanilla Sex, Trans",
     details: {
-      Height: "5'6\"",
-      Race: "white",
       Status: "single",
-      Orientation: "straightMale",
-      Travel: "anytime",
+      Travel: "weekend away",
+      Orientation: "straight female",
+      Race: "asian",
+      Height: "5'0\"",
+      Build: "athletic",
+      Attributes: "small",
     },
     interactions: {
       favorite: { action: "add" },
@@ -109,7 +113,7 @@ function profileFor(u) {
     managed: false,
     phantom: false,
     limitedBoostedMessages: null,
-    address: { distance: u.distance },
+    address: { distance: u.distance || "2 km" },
     gender: "female",
     viewerUser: { level: 0 },
     activation: null,
