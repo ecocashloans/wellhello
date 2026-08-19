@@ -1,0 +1,46 @@
+{
+  "name": "Wellhello!",
+  "short_name": "Wellhello!",
+  "gcm_sender_id": "243655014850",
+  "icons": [
+    {
+      "src": "/img/pushnotifications/wellhello/icon.push.notifications.s.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pushnotifications/wellhello/icon.push.notifications.l.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pushnotifications/wellhello/icon.push.notifications.l.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pushnotifications/wellhello/icon.push.notifications.l.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pushnotifications/wellhello/icon.push.notifications.l.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pushnotifications/wellhello/icon.push.notifications.l.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/pushnotifications/wellhello/wh.favicon.512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#21C1FC",
+  "background_color": "#21C1FC",
+  "start_url": "/site/user/home",
+  "display": "standalone"
+}
