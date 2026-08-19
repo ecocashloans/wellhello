@@ -18,6 +18,7 @@
     { "source": "/v2/api/user/:viewerId/flirt/:profileId", "destination": "/api/profile?p=flirt" },
     { "source": "/v2/api/user/:viewerId/friend_request/:requestId", "destination": "/api/profile?p=friendrequest" },
     { "source": "/v2/api/chat/token", "destination": "/api/profile?p=chattoken" },
+    { "source": "/users/:id/channels", "destination": "/api/channels" },
     { "source": "/v2/(.*)", "destination": "https://wellhello.com/v2/$1" },
     { "source": "/img/(.*)", "destination": "https://static.wellhello.com/img/$1" },
     { "source": "/(.*)", "destination": "/api/index" }

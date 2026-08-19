@@ -43,6 +43,11 @@ function buildMenu() {
       spaLink: false,
       icon: "conversation",
       action: "chat",
+      notification: {
+        type: false,
+        interface: "header-notification",
+        extraClasses: "notification--blink",
+      },
     }),
     link({
       title: "My Profile",
