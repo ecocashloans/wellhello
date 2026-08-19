@@ -9,7 +9,7 @@
     { "source": "/v2/api/user/:id/email/activation", "destination": "/api/emailactivation" },
     { "source": "/v2/api/profile/viewer/:viewerId/getprofile/:profileId", "destination": "/api/profile?p=getprofile&profileId=:profileId" },
     { "source": "/v2/api/profile/viewer/:viewerId/hotties/home", "destination": "/api/profile?p=hotties" },
-    { "source": "/v2/api/profile/viewer/:viewerId/hotties", "destination": "/api/profile?p=hotties" },
+    { "source": "/v2/api/profile/viewer/:viewerId/hotties", "destination": "/api/profile?p=hottiesgallery" },
     { "source": "/v2/api/profile/viewer/:viewerId/newphotos", "destination": "/api/profile?p=newphotos" },
     { "source": "/v2/api/user/report/data", "destination": "/api/profile?p=reporttopics" },
     { "source": "/v2/api/user/:viewerId/report", "destination": "/api/profile?p=report" },

@@ -126,6 +126,19 @@ function hottiesFor(profileId) {
   return { items: items, upgradeButton: null };
 }
 
+function hottiesGalleryFor(profileId) {
+  // Gallery-store contract: setGalleryHotties does
+  //   Object.keys(e.fetchedData.results).map(...)  =>  data.items.results
+  // must be an object map keyed by user id, NOT an array.
+  const start = (Number(profileId) || 1) % AVATARS.length;
+  const results = {};
+  for (let i = 0; i < 24; i++) {
+    const u = AVATARS[(start + i) % AVATARS.length];
+    results[u.user_id] = thumbnailFor(u);
+  }
+  return { items: { results: results }, upgradeButton: null };
+}
+
 function newPhotosFor(profileId) {
   const start = ((Number(profileId) || 1) + 5) % AVATARS.length;
   const items = [];
@@ -163,6 +176,8 @@ export default async function handler(req, res) {
         const u = pick(profileId || 98);
         return ok(res, profileFor(u));
       }
+      case "hottiesgallery":
+        return ok(res, hottiesGalleryFor(1));
       case "hotties":
         return ok(res, hottiesFor(1));
       case "newphotos":
@@ -189,8 +204,11 @@ export default async function handler(req, res) {
   if (m && method === "GET") {
     return ok(res, profileFor(pick(m[1])));
   }
-  if (/^\/v2\/api\/profile\/viewer\/[^/]+\/hotties$/.test(path) && method === "GET") {
+  if (/^\/v2\/api\/profile\/viewer\/[^/]+\/hotties\/home$/.test(path) && method === "GET") {
     return ok(res, hottiesFor(1));
+  }
+  if (/^\/v2\/api\/profile\/viewer\/[^/]+\/hotties$/.test(path) && method === "GET") {
+    return ok(res, hottiesGalleryFor(1));
   }
   if (/^\/v2\/api\/profile\/viewer\/[^/]+\/newphotos$/.test(path) && method === "GET") {
     return ok(res, newPhotosFor(1));
