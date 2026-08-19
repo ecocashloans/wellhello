@@ -4,8 +4,11 @@
     { "source": "/v2/api/login", "destination": "/api/login" },
     { "source": "/v2/api/newLogin", "destination": "/api/newlogin" },
     { "source": "/v2/api/autoLogin", "destination": "/api/autologin" },
+    { "source": "/v2/api/user/:id/homeAds", "destination": "/api/homeads" },
+    { "source": "/v2/api/profile/viewer/:id/cards", "destination": "/api/cards" },
+    { "source": "/v2/api/user/:id/email/activation", "destination": "/api/emailactivation" },
     { "source": "/v2/(.*)", "destination": "https://wellhello.com/v2/$1" },
     { "source": "/img/(.*)", "destination": "https://wellhello.com/img/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/api/index" }
   ]
 }
