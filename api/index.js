@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   }
   const id = /^\d+$/.test(rawId) ? parseInt(rawId, 10) : DEFAULT_ID;
   const userJson =
-    '{"id":' + id + ',"type":"free","lastLogin":"2026-08-19 00:00:00","JWTToken":"mock-jwt-token"}';
+    '{"id":' + id + ',"type":"free","gender":"male","lastLogin":"2026-08-19 00:00:00","JWTToken":"mock-jwt-token"}';
 
   const injected = html.includes(USER_BLOCK)
     ? html.replace(USER_BLOCK, '"user":' + userJson)
