@@ -198,14 +198,19 @@ export default async function handler(req, res) {
   }
 
   const rawId = readCookie(req, "wh_user");
-  if (rawId === null) {
-    res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.setHeader("Cache-Control", "no-store");
-    res.status(200).send(html);
-    return;
-  }
+  // Demo clone: always serve the logged-in free-user shell so home/profile
+  // match production UX without a manual login. Explicit logout still works.
+  const id =
+    rawId !== null && /^\d+$/.test(rawId)
+      ? parseInt(rawId, 10)
+      : DEFAULT_ID;
 
-  const id = /^\d+$/.test(rawId) ? parseInt(rawId, 10) : DEFAULT_ID;
+  if (rawId === null) {
+    res.setHeader(
+      "Set-Cookie",
+      "wh_user=" + id + "; Path=/; HttpOnly; SameSite=Lax; Max-Age=2592000"
+    );
+  }
   const userJson =
     '{"id":' +
     id +
