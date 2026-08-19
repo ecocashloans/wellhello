@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/v2/(.*)", "destination": "https://wellhello.com/v2/$1" },
+    { "source": "/img/(.*)", "destination": "https://wellhello.com/img/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
