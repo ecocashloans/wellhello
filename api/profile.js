@@ -46,6 +46,8 @@ function avatarUrl(userId, variant) {
 
 function pick(profileId) {
   const id = Number(profileId) || 98;
+  const exact = AVATARS.find((a) => a.user_id === id);
+  if (exact) return exact;
   return AVATARS[((id % AVATARS.length) + AVATARS.length) % AVATARS.length];
 }
 
