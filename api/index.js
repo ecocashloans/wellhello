@@ -11,7 +11,7 @@ function readCookie(req, name) {
 }
 
 export default async function handler(req, res) {
-  const html = fs.readFileSync(path.join(process.cwd(), "index.html"), "utf-8");
+  const html = fs.readFileSync(path.join(process.cwd(), "_app.html"), "utf-8");
 
   const rawId = readCookie(req, "wh_user");
   if (rawId === null) {
